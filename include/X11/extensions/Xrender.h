@@ -169,6 +169,14 @@ typedef struct _XAnimCursor {
     unsigned long   delay;
 } XAnimCursor;
 
+typedef struct _XSpanFix {
+    XFixed	    left, right, y;
+} XSpanFix;
+
+typedef struct _XTrap {
+    XSpanFix	    top, bottom;
+} XTrap;
+
 _XFUNCPROTOBEGIN
 
 Bool XRenderQueryExtension (Display *dpy, int *event_basep, int *error_basep);
@@ -463,6 +471,15 @@ Cursor
 XRenderCreateAnimCursor (Display	*dpy,
 			 int		ncursor,
 			 XAnimCursor	*cursors);
+
+
+void
+XRenderAddTraps (Display	    *dpy,
+		 Picture	    picture,
+		 int		    xOff,
+		 int		    yOff,
+		 _Xconst XTrap	    *traps,
+		 int		    ntrap);
 
 _XFUNCPROTOEND
 
