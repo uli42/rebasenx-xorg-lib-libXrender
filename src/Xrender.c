@@ -104,6 +104,7 @@ XRenderDepthCheckErrorHandler (Display *dpy, XErrorEvent *evt)
 	    }
 	_XUnlockMutex (_Xglobal_lock);
     }
+    return 0;
 }
 
 static Bool
