@@ -1,5 +1,5 @@
 /*
- * $XFree86$
+ * $Id$
  *
  * Copyright © 2000 SuSE, Inc.
  *
@@ -40,7 +40,7 @@ XRenderComposite (Display   *dpy,
 		  unsigned int	width,
 		  unsigned int	height)
 {
-    XExtDisplayInfo         *info = XRenderFindDisplay (dpy);
+    XRenderExtDisplayInfo         *info = XRenderFindDisplay (dpy);
     xRenderCompositeReq	    *req;
 
     RenderSimpleCheckExtension (dpy, info);

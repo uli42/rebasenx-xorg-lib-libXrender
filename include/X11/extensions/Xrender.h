@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Xrender.h,v 1.17 2002/11/06 22:47:49 keithp Exp $
+ * $Id$
  *
  * Copyright © 2000 SuSE, Inc.
  *
@@ -28,6 +28,7 @@
 
 #include <X11/extensions/render.h>
 
+#include <X11/Xlib.h>
 #include <X11/Xfuncproto.h>
 #include <X11/Xosdefs.h>
 #include <X11/Xutil.h>
