@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Cursor.c,v 1.3 2002/11/24 21:46:15 tsi Exp $
+ * $XFree86$
  *
  * Copyright © 2002 Keith Packard, member of The XFree86 Project, Inc.
  *

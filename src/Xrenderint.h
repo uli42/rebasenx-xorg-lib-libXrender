@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Xrenderint.h,v 1.4 2002/11/05 23:22:35 keithp Exp $
+ * $XFree86$
  *
  * Copyright © 2000 SuSE, Inc.
  *
