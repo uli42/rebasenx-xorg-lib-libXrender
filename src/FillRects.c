@@ -1,5 +1,4 @@
 /*
- * $XFree86$
  *
  * Copyright © 2000 SuSE, Inc.
  *
@@ -37,7 +36,7 @@ XRenderFillRectangles (Display		    *dpy,
 		       _Xconst XRectangle   *rectangles,
 		       int		    n_rects)
 {
-    XExtDisplayInfo		*info = XRenderFindDisplay (dpy);
+    XRenderExtDisplayInfo		*info = XRenderFindDisplay (dpy);
     xRenderFillRectanglesReq	*req;
     long			len;
     int				n;
