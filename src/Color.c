@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Color.c,v 1.1 2002/05/17 22:34:18 keithp Exp $
+ * $XFree86$
  *
  * Copyright © 2002 Keith Packard, member of The XFree86 Project, Inc.
  *
