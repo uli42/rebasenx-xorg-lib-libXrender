@@ -1,5 +1,5 @@
 /*
- * $XFree86$
+ * $XFree86: xc/lib/Xrender/FillRect.c,v 1.2 2001/12/16 18:27:55 keithp Exp $
  *
  * Copyright © 2000 SuSE, Inc.
  *

@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Poly.c,v 1.6 2002/05/21 20:39:50 keithp Exp $
+ * $XFree86: xc/lib/Xrender/Poly.c,v 1.7 2002/06/04 23:22:36 keithp Exp $
  *
  * Copyright © 2002 Keith Packard, member of The XFree86 Project, Inc.
  *

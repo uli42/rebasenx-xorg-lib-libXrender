@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Trap.c,v 1.2 2002/09/27 16:40:11 keithp Exp $
+ * $XFree86: xc/lib/Xrender/Trap.c,v 1.3 2002/11/05 23:22:35 keithp Exp $
  *
  * Copyright © 2002 Keith Packard, member of The XFree86 Project, Inc.
  *
