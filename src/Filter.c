@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Filter.c,v 1.1 2002/09/26 02:56:52 keithp Exp $
+ * $XFree86$
  *
  * Copyright © 2002 Keith Packard, member of The XFree86 Project, Inc.
  *

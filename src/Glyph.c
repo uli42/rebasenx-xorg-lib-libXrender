@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Glyph.c,v 1.12 2002/11/05 23:22:35 keithp Exp $
+ * $XFree86: xc/lib/Xrender/Glyph.c,v 1.11 2002/10/18 01:13:39 keithp Exp $
  *
  * Copyright © 2000 SuSE, Inc.
  *

@@ -1,5 +1,5 @@
 /*
- * $XFree86: xc/lib/Xrender/Xrender.h,v 1.18 2002/11/23 02:34:45 keithp Exp $
+ * $XFree86: xc/lib/Xrender/Xrender.h,v 1.17 2002/11/06 22:47:49 keithp Exp $
  *
  * Copyright © 2000 SuSE, Inc.
  *
