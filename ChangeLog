@@ -1,3 +1,9 @@
+2005-06-09  Alexander Gottwald  <ago@freedesktop.org>
+
+	* src/Makefile.am: 
+	Use $(top_srcdir)/... instead of $(top_builddir)/... in INCLUDES
+	Added $(top_srcdir) to INCLUDES 
+
 2004-11-22  Carl Worth  <cworth@cworth.org>
 
 	* configure.ac: Remove AC_CONFIG_AUX_DIR (it was in the wrong
