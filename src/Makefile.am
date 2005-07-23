@@ -15,9 +15,7 @@ libXrender_la_SOURCES = AddTrap.c \
                         Trap.c \
                         Tri.c \
                         Xrender.c \
-                        Xrender.h \
-                        Xrenderint.h \
-                        region.h
+                        Xrenderint.h
 
 libXrender_la_LIBADD = @X_LIBS@ -lX11
 
