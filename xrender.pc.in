@@ -6,6 +6,7 @@ includedir=@includedir@
 Name: Xrender
 Description: X Render Library
 Version: @VERSION@
-Requires: @X_REQUIRES@
-Cflags: -I${includedir} @RENDER_CFLAGS@ @X_NON_PKG_CFLAGS@
-Libs: -L${libdir} -lXrender @X_NON_PKG_LIBS@
+Requires: xproto renderproto >= @RENDER_VERSION@ x11
+Requires.private: x11
+Cflags: -I${includedir}
+Libs: -L${libdir} -lXrender

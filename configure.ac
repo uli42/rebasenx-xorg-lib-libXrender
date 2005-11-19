@@ -60,6 +60,7 @@ if test "$VERSION" = "" ; then
        VERSION=$PACKAGE_VERSION;
 fi
 RENDER_VERSION=[`echo $VERSION | sed 's/^\([0-9][0-9]*\.[0-9][0-9]*\).*$/\1/'`]
+AC_SUBST(RENDER_VERSION)
 PKG_CHECK_MODULES(RENDER, renderproto >= $RENDER_VERSION)
 
 AC_SUBST(RENDER_CFLAGS)
