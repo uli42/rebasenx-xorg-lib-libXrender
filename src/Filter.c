@@ -146,7 +146,7 @@ XRenderSetPictureFilter  (Display   *dpy,
     req->nbytes = nbytes;
     req->length += ((nbytes + 3) >> 2) + nparams;
     Data (dpy, filter, nbytes);
-    Data32 (dpy, params, nparams << 2);
+    Data (dpy, params, nparams << 2);
     UnlockDisplay(dpy);
     SyncHandle();
 }
