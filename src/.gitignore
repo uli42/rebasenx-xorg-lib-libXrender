@@ -1,6 +1,0 @@
-.deps
-.libs
-libXrender.la
-*.lo
-Makefile
-Makefile.in

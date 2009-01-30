@@ -1,4 +1,4 @@
-AM_CFLAGS = $(RENDER_CFLAGS) $(X_CFLAGS) -I$(top_srcdir) -I$(top_srcdir)/include/X11/extensions $(MALLOC_ZERO_CFLAGS)
+AM_CFLAGS = $(RENDER_CFLAGS) -I$(top_srcdir) -I$(top_srcdir)/include/X11/extensions $(MALLOC_ZERO_CFLAGS)
 
 lib_LTLIBRARIES = libXrender.la
 
@@ -17,7 +17,7 @@ libXrender_la_SOURCES = AddTrap.c \
                         Xrender.c \
                         Xrenderint.h
 
-libXrender_la_LIBADD = @X_LIBS@ -lX11
+libXrender_la_LIBADD = $(RENDER_LIBS)
 
 # -version-number requires libtool >= 1.5
 libXrender_la_LDFLAGS = -version-number 1:3:0 -no-undefined 

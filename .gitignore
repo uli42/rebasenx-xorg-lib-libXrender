@@ -1,3 +1,5 @@
+.deps
+.libs
 aclocal.m4
 autom4te.cache
 config.guess
@@ -19,3 +21,9 @@ mkinstalldirs
 stamp-h1
 xrender.pc
 *~
+*.o
+*.la
+*.lo
+libXrender-*.tar.*
+ChangeLog
+tags
