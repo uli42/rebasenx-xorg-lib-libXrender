@@ -1,4 +1,5 @@
-AM_CFLAGS = $(RENDER_CFLAGS) -I$(top_srcdir) -I$(top_srcdir)/include/X11/extensions $(MALLOC_ZERO_CFLAGS)
+AM_CFLAGS = $(CWARNFLAGS) $(RENDER_CFLAGS) $(MALLOC_ZERO_CFLAGS)
+AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include/X11/extensions
 
 lib_LTLIBRARIES = libXrender.la
 

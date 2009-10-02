@@ -34,15 +34,15 @@ AC_INIT(libXrender, 0.9.4, [https://bugs.freedesktop.org/enter_bug.cgi?product=x
 AM_INIT_AUTOMAKE([dist-bzip2])
 AM_MAINTAINER_MODE
 
-# Require xorg-macros: XORG_CWARNFLAGS, XORG_CHANGELOG
-m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.2 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.2)
+# Require xorg-macros: XORG_DEFAULT_OPTIONS
+m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.3 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.3)
 AM_CONFIG_HEADER(config.h)
 
 # Check for progs
 AC_PROG_CC
 AC_PROG_LIBTOOL
-XORG_CWARNFLAGS
+XORG_DEFAULT_OPTIONS
 
 # Check render configuration, strip extra digits from package version to
 # find the required protocol version
@@ -53,12 +53,9 @@ fi
 RENDER_VERSION=[`echo $VERSION | sed 's/^\([0-9][0-9]*\.[0-9][0-9]*\).*$/\1/'`]
 AC_SUBST(RENDER_VERSION)
 PKG_CHECK_MODULES(RENDER, x11 renderproto >= $RENDER_VERSION)
-RENDER_CFLAGS="$CWARNFLAGS $RENDER_CFLAGS"
 AC_SUBST(RENDER_CFLAGS)
 
 XORG_CHECK_MALLOC_ZERO
-XORG_RELEASE_VERSION
-XORG_CHANGELOG
 
 AC_OUTPUT([Makefile
 	   src/Makefile
