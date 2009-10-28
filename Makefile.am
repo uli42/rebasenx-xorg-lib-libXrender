@@ -28,9 +28,12 @@ dist_doc_DATA = doc/libXrender.txt
 
 EXTRA_DIST = xrender.pc.in 
 
-.PHONY: ChangeLog
+.PHONY: ChangeLog INSTALL
+
+INSTALL:
+	$(INSTALL_CMD)
 
 ChangeLog:
 	$(CHANGELOG_CMD)
 
-dist-hook: ChangeLog
+dist-hook: ChangeLog INSTALL
