@@ -27,7 +27,6 @@ pkgconfig_DATA = xrender.pc
 dist_doc_DATA = doc/libXrender.txt
 
 MAINTAINERCLEANFILES = ChangeLog INSTALL
-EXTRA_DIST = xrender.pc.in 
 
 .PHONY: ChangeLog INSTALL
 
