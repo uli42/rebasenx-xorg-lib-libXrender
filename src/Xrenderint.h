@@ -26,8 +26,6 @@
 #define _XRENDERINT_H_
 
 #include "config.h"
-#define NEED_EVENTS
-#define NEED_REPLIES
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/renderproto.h>
