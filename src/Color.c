@@ -29,14 +29,14 @@
 Status
 XRenderParseColor(Display *dpy, char *spec, XRenderColor *def)
 {
-    
+
     if (!strncmp (spec, "rgba:", 5))
     {
 	unsigned short	elements[4];
 	unsigned short	*pShort;
 	int		i, n;
 	char		c;
-	
+
 	spec += 5;
 	/*
 	 * Attempt to parse the value portion.
@@ -76,7 +76,7 @@ XRenderParseColor(Display *dpy, char *spec, XRenderColor *def)
     {
 	XColor	    coreColor;
 	Colormap    colormap;
-	
+
 	colormap = DefaultColormap (dpy, DefaultScreen (dpy));
 	if (!XParseColor (dpy, colormap, spec, &coreColor))
 	    return 0;
