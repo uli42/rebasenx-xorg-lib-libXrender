@@ -844,7 +844,7 @@ XRenderQueryPictIndexValues(Display			*dpy,
     xRenderQueryPictIndexValuesReq	*req;
     xRenderQueryPictIndexValuesReply	rep;
     XIndexValue				*values;
-    int					nbytes, nread, rlength, i;
+    unsigned int			nbytes, nread, rlength, i;
 
     RenderCheckExtension (dpy, info, NULL);
 
@@ -860,15 +860,22 @@ XRenderQueryPictIndexValues(Display			*dpy,
 	return NULL;
     }
 
-    /* request data length */
-    nbytes = (long)rep.length << 2;
-    /* bytes of actual data in the request */
-    nread = rep.numIndexValues * SIZEOF (xIndexValue);
-    /* size of array returned to application */
-    rlength = rep.numIndexValues * sizeof (XIndexValue);
+    if ((rep.length < (INT_MAX >> 2)) &&
+	(rep.numIndexValues < (INT_MAX / sizeof (XIndexValue)))) {
+	/* request data length */
+	nbytes = rep.length << 2;
+	/* bytes of actual data in the request */
+	nread = rep.numIndexValues * SIZEOF (xIndexValue);
+	/* size of array returned to application */
+	rlength = rep.numIndexValues * sizeof (XIndexValue);
 
-    /* allocate returned data */
-    values = (XIndexValue *)Xmalloc (rlength);
+	/* allocate returned data */
+	values = Xmalloc (rlength);
+    } else {
+	nbytes = nread = rlength = 0;
+	values = NULL;
+    }
+
     if (!values)
     {
 	_XEatDataWords (dpy, rep.length);
