@@ -26,6 +26,7 @@
 #include <config.h>
 #endif
 #include "Xrenderint.h"
+#include <limits.h>
 
 XRenderExtInfo XRenderExtensionInfo;
 char XRenderExtensionName[] = RENDER_NAME;
@@ -411,8 +412,8 @@ XRenderQueryFormats (Display *dpy)
     CARD32			*xSubpixel;
     void			*xData;
     int				nf, ns, nd, nv;
-    int				rlength;
-    int				nbytes;
+    unsigned long		rlength;
+    unsigned long		nbytes;
 
     RenderCheckExtension (dpy, info, 0);
     LockDisplay (dpy);
@@ -458,18 +459,29 @@ XRenderQueryFormats (Display *dpy)
     if (async_state.major_version == 0 && async_state.minor_version < 6)
 	rep.numSubpixel = 0;
 
-    xri = (XRenderInfo *) Xmalloc (sizeof (XRenderInfo) +
-				   rep.numFormats * sizeof (XRenderPictFormat) +
-				   rep.numScreens * sizeof (XRenderScreen) +
-				   rep.numDepths * sizeof (XRenderDepth) +
-				   rep.numVisuals * sizeof (XRenderVisual));
-    rlength = (rep.numFormats * sizeof (xPictFormInfo) +
-	       rep.numScreens * sizeof (xPictScreen) +
-	       rep.numDepths * sizeof (xPictDepth) +
-	       rep.numVisuals * sizeof (xPictVisual) +
-	       rep.numSubpixel * 4);
-    xData = (void *) Xmalloc (rlength);
-    nbytes = (int) rep.length << 2;
+    if ((rep.numFormats < ((INT_MAX / 4) / sizeof (XRenderPictFormat))) &&
+	(rep.numScreens < ((INT_MAX / 4) / sizeof (XRenderScreen))) &&
+	(rep.numDepths  < ((INT_MAX / 4) / sizeof (XRenderDepth))) &&
+	(rep.numVisuals < ((INT_MAX / 4) / sizeof (XRenderVisual))) &&
+	(rep.numSubpixel < ((INT_MAX / 4) / 4)) &&
+	(rep.length < (INT_MAX >> 2)) ) {
+	xri = Xmalloc (sizeof (XRenderInfo) +
+		       (rep.numFormats * sizeof (XRenderPictFormat)) +
+		       (rep.numScreens * sizeof (XRenderScreen)) +
+		       (rep.numDepths * sizeof (XRenderDepth)) +
+		       (rep.numVisuals * sizeof (XRenderVisual)));
+	rlength = ((rep.numFormats * sizeof (xPictFormInfo)) +
+		   (rep.numScreens * sizeof (xPictScreen)) +
+		   (rep.numDepths * sizeof (xPictDepth)) +
+		   (rep.numVisuals * sizeof (xPictVisual)) +
+		   (rep.numSubpixel * 4));
+	xData = Xmalloc (rlength);
+	nbytes = (unsigned long) rep.length << 2;
+    } else {
+	xri = NULL;
+	xData = NULL;
+	rlength = nbytes = 0;
+    }
 
     if (!xri || !xData || nbytes < rlength)
     {
