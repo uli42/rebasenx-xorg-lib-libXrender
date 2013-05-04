@@ -475,7 +475,7 @@ XRenderQueryFormats (Display *dpy)
     {
 	if (xri) Xfree (xri);
 	if (xData) Xfree (xData);
-	_XEatData (dpy, nbytes);
+	_XEatDataWords (dpy, rep.length);
 	UnlockDisplay (dpy);
 	SyncHandle ();
 	return 0;
@@ -859,7 +859,7 @@ XRenderQueryPictIndexValues(Display			*dpy,
     values = (XIndexValue *)Xmalloc (rlength);
     if (!values)
     {
-	_XEatData (dpy, nbytes);
+	_XEatDataWords (dpy, rep.length);
 	UnlockDisplay (dpy);
 	SyncHandle ();
 	return NULL;
