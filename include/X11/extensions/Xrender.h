@@ -38,7 +38,7 @@
 
 #ifdef NX_MODIFICATION
 #ifdef NX_CLEANUP
-#include "renderproto.h"
+#include "X11/extensions/renderproto.h"
 #endif
 
 #endif
