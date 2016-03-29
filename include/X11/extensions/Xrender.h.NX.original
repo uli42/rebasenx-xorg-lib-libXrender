@@ -25,10 +25,8 @@
 #ifndef _XRENDER_H_
 #define _XRENDER_H_
 
-#ifdef NX_MODIFICATION
 #define NX_CLEANUP
 
-#endif
 #include <X11/extensions/render.h>
 
 #include <X11/Xlib.h>
@@ -36,12 +34,10 @@
 #include <X11/Xosdefs.h>
 #include <X11/Xutil.h>
 
-#ifdef NX_MODIFICATION
 #ifdef NX_CLEANUP
 #include "renderproto.h"
 #endif
 
-#endif
 typedef struct {
     short   red;
     short   redMask;
@@ -306,7 +302,6 @@ XRenderReferenceGlyphSet (Display *dpy, GlyphSet existing);
 void
 XRenderFreeGlyphSet (Display *dpy, GlyphSet glyphset);
 
-#ifdef NX_MODIFICATION
 #ifdef NX_CLEANUP
 
 void XRenderCleanGlyphs (xGlyphInfo  *gi,
@@ -317,7 +312,6 @@ void XRenderCleanGlyphs (xGlyphInfo  *gi,
 
 #endif /* #ifdef NX_CLEANUP */
 
-#endif
 void
 XRenderAddGlyphs (Display		*dpy,
 		  GlyphSet		glyphset,

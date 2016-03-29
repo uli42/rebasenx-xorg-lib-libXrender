@@ -27,7 +27,6 @@
 #endif
 #include "Xrenderint.h"
 
-#ifdef NX_MODIFICATION
 /* 
  * NX_RENDER_CLEANUP enables cleaning of padding bytes
  */
@@ -48,7 +47,6 @@
 
 #endif /* NX_RENDER_CLEANUP */
 
-#endif
 GlyphSet
 XRenderCreateGlyphSet (Display *dpy, _Xconst XRenderPictFormat *format)
 {
@@ -103,7 +101,6 @@ XRenderFreeGlyphSet (Display *dpy, GlyphSet glyphset)
     SyncHandle();
 }
 
-#ifdef NX_MODIFICATION
 #ifdef NX_RENDER_CLEANUP
 
 void
@@ -346,7 +343,6 @@ XRenderCleanGlyphs(xGlyphInfo  *gi,
 
 #endif /* #ifdef NX_RENDER_CLEANUP */
 
-#endif
 void
 XRenderAddGlyphs (Display	*dpy,
 		  GlyphSet	glyphset,
@@ -670,7 +666,6 @@ XRenderCompositeText8 (Display			    *dpy,
     _Xconst char		*chars;
     int				nchars;
 
-#ifdef NX_MODIFICATION
     #ifdef NX_RENDER_CLEANUP
 
     char 			tmpChar[4];
@@ -679,7 +674,6 @@ XRenderCompositeText8 (Display			    *dpy,
 
     #endif /* NX_RENDER_CLEANUP */
 
-#endif
     if (!nelt)
 	return;
     
@@ -740,7 +734,6 @@ XRenderCompositeText8 (Display			    *dpy,
 	{
 	    glyphset = elts[i].glyphset;
 	    BufAlloc (xGlyphElt *, elt, SIZEOF (xGlyphElt));
-#ifdef NX_MODIFICATION
 
 	    #ifdef NX_RENDER_CLEANUP
 
@@ -749,7 +742,6 @@ XRenderCompositeText8 (Display			    *dpy,
 
 	    #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    elt->len = 0xff;
 	    elt->deltax = 0;
 	    elt->deltay = 0;
@@ -764,7 +756,6 @@ XRenderCompositeText8 (Display			    *dpy,
 	    int this_chars = nchars > MAX_8 ? MAX_8 : nchars;
 
 	    BufAlloc (xGlyphElt *, elt, SIZEOF(xGlyphElt))
-#ifdef NX_MODIFICATION
 
 	    #ifdef NX_RENDER_CLEANUP
 
@@ -773,13 +764,11 @@ XRenderCompositeText8 (Display			    *dpy,
 
 	    #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    elt->len = this_chars;
 	    elt->deltax = xDst;
 	    elt->deltay = yDst;
 	    xDst = 0;
 	    yDst = 0;
-#ifdef NX_MODIFICATION
 
             #ifdef NX_RENDER_CLEANUP
 
@@ -849,7 +838,6 @@ XRenderCompositeText8 (Display			    *dpy,
 
             #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    Data (dpy, chars, this_chars);
 	    nchars -= this_chars;
 	    chars += this_chars;
@@ -884,7 +872,6 @@ XRenderCompositeText16 (Display			    *dpy,
     _Xconst unsigned short    	*chars;
     int				nchars;
 
-#ifdef NX_MODIFICATION
     #ifdef NX_RENDER_CLEANUP
 
     int				bytes_to_write;
@@ -893,7 +880,6 @@ XRenderCompositeText16 (Display			    *dpy,
 
     #endif /* NX_RENDER_CLEANUP */
 
-#endif
     if (!nelt)
 	return;
     
@@ -951,7 +937,6 @@ XRenderCompositeText16 (Display			    *dpy,
 	{
 	    glyphset = elts[i].glyphset;
 	    BufAlloc (xGlyphElt *, elt, SIZEOF (xGlyphElt));
-#ifdef NX_MODIFICATION
 
 	    #ifdef NX_RENDER_CLEANUP
 
@@ -960,7 +945,6 @@ XRenderCompositeText16 (Display			    *dpy,
 
 	    #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    elt->len = 0xff;
 	    elt->deltax = 0;
 	    elt->deltay = 0;
@@ -974,13 +958,8 @@ XRenderCompositeText16 (Display			    *dpy,
 	{
 	    int this_chars = nchars > MAX_16 ? MAX_16 : nchars;
 	    int this_bytes = this_chars * 2;
-#ifndef NX_MODIFICATION
-    
-#else
 
-#endif
 	    BufAlloc (xGlyphElt *, elt, SIZEOF(xGlyphElt))
-#ifdef NX_MODIFICATION
 
 	    #ifdef NX_RENDER_CLEANUP
 
@@ -989,13 +968,11 @@ XRenderCompositeText16 (Display			    *dpy,
 
 	    #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    elt->len = this_chars;
 	    elt->deltax = xDst;
 	    elt->deltay = yDst;
 	    xDst = 0;
 	    yDst = 0;
-#ifdef NX_MODIFICATION
 	    
             #ifdef NX_RENDER_CLEANUP
 
@@ -1052,7 +1029,6 @@ XRenderCompositeText16 (Display			    *dpy,
 
             #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    Data16 (dpy, chars, this_bytes);
 	    nchars -= this_chars;
 	    chars += this_chars;
@@ -1140,7 +1116,6 @@ XRenderCompositeText32 (Display			    *dpy,
 	{
 	    glyphset = elts[i].glyphset;
 	    BufAlloc (xGlyphElt *, elt, SIZEOF (xGlyphElt));
-#ifdef NX_MODIFICATION
 
 	    #ifdef NX_RENDER_CLEANUP
 
@@ -1149,7 +1124,6 @@ XRenderCompositeText32 (Display			    *dpy,
 
 	    #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    elt->len = 0xff;
 	    elt->deltax = 0;
 	    elt->deltay = 0;
@@ -1164,7 +1138,6 @@ XRenderCompositeText32 (Display			    *dpy,
 	    int this_chars = nchars > MAX_32 ? MAX_32 : nchars;
 	    int this_bytes = this_chars * 4;
 	    BufAlloc (xGlyphElt *, elt, SIZEOF(xGlyphElt))
-#ifdef NX_MODIFICATION
 
 	    #ifdef NX_RENDER_CLEANUP
 
@@ -1173,20 +1146,17 @@ XRenderCompositeText32 (Display			    *dpy,
 
 	    #endif /* NX_RENDER_CLEANUP */
 
-#endif
 	    elt->len = this_chars;
 	    elt->deltax = xDst;
 	    elt->deltay = yDst;
 	    xDst = 0;
 	    yDst = 0;
-#ifdef NX_MODIFICATION
 
             #ifdef TEST
             fprintf(stderr, "XRenderCompositeText32: this_chars %d, this_bytes %d.\n",
                     this_chars, this_bytes);
             #endif
 
-#endif
 	    DataInt32 (dpy, chars, this_bytes);
 	    nchars -= this_chars;
 	    chars += this_chars;
